@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="garden-ink">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boris Cherny's Profile & Workflow</title>
+  <style>
+    /* * ==========================================
+     * THEME VARIABLES 
+     * Extracted from the uploaded CSS files
+     * ==========================================
+     */
+    
+    html { color-scheme: light dark; transition: color 0.3s, background-color 0.3s; }
+
+    /* 1) Garden Ink */
+    html[data-theme="garden-ink"] {
+      --bg: #F7FAF8; --text: #0F2B2B; --muted: #D7E3DE; --muted-2: #ECF3F0;
+      --accent: #D8527D; --accent-hover: #B23567; --mark-bg: #F3EAC8;
+      --code-inline-bg: #1D3F3F; --code-inline-fg: #F7FAF8; --code-block-bg: #F1F7F4;
+      --blockquote-bg: #EFF5F1; --blockquote-border: #F09B2E;
+      --token-comment: #6a8f8c; --token-operator: #FF8E3C; --token-string: #F39CB8;
+      --token-number: #8BD4B0; --token-function: #D8527D;
+    }
+    @media (prefers-color-scheme: dark) {
+      html[data-theme="garden-ink"] {
+        --bg: #0F2223; --text: #ECF3F0; --muted: #1A3435; --muted-2: #122829;
+        --accent: #F06A9A; --accent-hover: #FF8E3C; --mark-bg: #F6D86C;
+        --code-inline-bg: #0E1B1C; --code-inline-fg: #ECF3F0; --code-block-bg: #0B1516;
+        --blockquote-bg: #132A2B; --blockquote-border: #6AA585;
+      }
+    }
+
+    /* 2) Acid Meadow */
+    html[data-theme="acid-meadow"] {
+      --bg: #FCFFF8; --text: #07111E; --muted: #E3E8E0; --muted-2: #F0F4EE;
+      --accent: #FF6A1A; --accent-hover: #D94E00; --mark-bg: #D8FF5D;
+      --code-inline-bg: #0B1528; --code-inline-fg: #F1FFE3; --code-block-bg: #F5FFF0;
+      --blockquote-bg: #F0FFE0; --blockquote-border: #9EEA2F;
+      --token-comment: #89A6B7; --token-operator: #FF9A33; --token-string: #B4FF3A;
+      --token-number: #8DD9FF; --token-function: #FF6A1A;
+    }
+    @media (prefers-color-scheme: dark) {
+      html[data-theme="acid-meadow"] {
+        --bg: #07111E; --text: #F1FFE3; --muted: #0F1E33; --muted-2: #0B1728;
+        --accent: #FF9A33; --accent-hover: #FFDD55; --mark-bg: #C9FF3A;
+        --code-inline-bg: #040A13; --code-inline-fg: #E9FFD7; --code-block-bg: #040A12;
+        --blockquote-bg: #0D1A2F; --blockquote-border: #C9FF3A;
+      }
+    }
+
+    /* 3) Kinetic Primary */
+    html[data-theme="kinetic-primary"] {
+      --bg: #FBFEFF; --text: #0A1633; --muted: #E3E8F1; --muted-2: #F0F4FA;
+      --accent: #FF3D2E; --accent-hover: #C92D25; --mark-bg: #FFF066;
+      --code-inline-bg: #0F1C3D; --code-inline-fg: #F3F7FF; --code-block-bg: #F5F9FF;
+      --blockquote-bg: #EEF3FF; --blockquote-border: #132D5E;
+      --token-comment: #7C8BB4; --token-operator: #FF3D2E; --token-string: #13D672;
+      --token-number: #FFD000; --token-function: #2EA0FF;
+    }
+    @media(prefers-color-scheme: dark) {
+      html[data-theme="kinetic-primary"] {
+        --bg: #0A1633; --text: #F3F7FF; --muted: #122552; --muted-2: #0E1D41;
+        --accent: #FFD000; --accent-hover: #FF3D2E; --mark-bg: #FFE34C;
+        --code-inline-bg: #08102A; --code-inline-fg: #EAF0FF; --code-block-bg: #060D22;
+        --blockquote-bg: #0D1A3A; --blockquote-border: #FFD000;
+      }
+    }
+
+    /* 4) Neon Ember */
+    html[data-theme="neon-ember"] {
+      --bg: #FFFDF6; --text: #1A0F1C; --muted: #EAE7DA; --muted-2: #F5F2E7;
+      --accent: #E96B00; --accent-hover: #A73E00; --mark-bg: #FFD34E;
+      --code-inline-bg: #281332; --code-inline-fg: #FFF7E8; --code-block-bg: #FFF6E8;
+      --blockquote-bg: #FFF2DA; --blockquote-border: #6E3FD6;
+      --token-comment: #8F86A8; --token-operator: #FF8F1F; --token-string: #FFD34E;
+      --token-number: #A8E6CF; --token-function: #6E3FD6;
+    }
+    @media(prefers-color-scheme: dark) {
+      html[data-theme="neon-ember"] {
+        --bg: #0B0A13; --text: #F8F1E5; --muted: #1A1823; --muted-2: #14131B;
+        --accent: #FF8F1F; --accent-hover: #FFC045; --mark-bg: #FFDD57;
+        --code-inline-bg: #120B18; --code-inline-fg: #F8F1E5; --code-block-bg: #0E0C12;
+        --blockquote-bg: #151320; --blockquote-border: #FF8F1F;
+      }
+    }
+
+    /* * ==========================================
+     * BASE STYLES 
+     * Applied globally from the shared CSS structure
+     * ==========================================
+     */
+    * { box-sizing: border-box; }
+    body {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0 auto;
+      padding: 24px;
+      max-width: 72ch;
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    h1, h2, h3, h4, h5, h6 { line-height: 1.25; margin: 1.25em 0 .5em; }
+    p, ul, ol, pre, table, blockquote { margin: 1em 0; }
+    
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
+    
+    mark { background: var(--mark-bg); border-radius: 3px; padding: 0 3px; }
+    kbd { background: var(--mark-bg); color: #1b1b1b; border-radius: 3px; padding: 0 3px; border: 1px solid rgba(0,0,0,.15); }
+    
+    code:not([class^="language-"]):not([class~="mermaid"]) {
+      background: var(--code-inline-bg);
+      color: var(--code-inline-fg);
+      border-radius: 4px;
+      padding: 2px 6px;
+      white-space: nowrap;
+    }
+    
+    pre {
+      background: var(--code-block-bg);
+      padding: 14px 16px;
+      border-radius: 8px;
+      overflow: auto;
+      border: 1px solid var(--muted);
+    }
+    pre > code { background: transparent !important; color: inherit; padding: 0; font: inherit; }
+    
+    /* Prism/Token Highlights using CSS Variables */
+    pre[class*="language-"], code[class*="language-"] { color: var(--text); }
+    .token.comment { color: var(--token-comment); }
+    .token.punctuation { color: var(--text); }
+    .token.operator { color: var(--token-operator); }
+    .token.string { color: var(--token-string); }
+    .token.number, .token.boolean { color: var(--token-number); }
+    .token.function, .token.selector, .token.class-name { color: var(--token-function); }
+    
+    blockquote {
+      background: var(--blockquote-bg);
+      border-left: 5px solid var(--blockquote-border);
+      padding: 10px 14px;
+      margin: 16px 0;
+      border-radius: 6px;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--muted);
+      border-radius: 8px;
+      display: block;
+      overflow: auto;
+    }
+    thead th { position: sticky; top: 0; background: var(--bg); z-index: 1; }
+    th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--muted); border-right: 1px solid var(--muted); }
+    tr td:last-of-type, tr th:last-of-type { border-right: none; }
+    tbody tr:nth-child(odd) td { background: var(--muted-2); }
+    
+    hr { border: none; border-top: 1px solid var(--muted); margin: 2em 0; }
+    img, video, canvas, svg { max-width: 100%; height: auto; border-radius: 6px; }
+
+    /* Custom UI for the Theme Switcher */
+    .theme-controls {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--muted);
+    }
+    .theme-controls select {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--muted);
+      background: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .theme-controls select:focus { outline: 2px solid var(--accent); }
+    .badge {
+      font-size: 0.8em;
+      padding: 2px 8px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #fff; /* Static white for contrast */
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Theme Switcher -->
+  <div class="theme-controls">
+    <label for="theme-selector"><strong>Preview Theme:</strong></label>
+    <select id="theme-selector" onchange="document.documentElement.setAttribute('data-theme', this.value)">
+      <option value="garden-ink">Garden Ink</option>
+      <option value="acid-meadow">Acid Meadow</option>
+      <option value="kinetic-primary">Kinetic Primary</option>
+      <option value="neon-ember">Neon Ember</option>
+    </select>
+  </div>
+
+  <!-- Markdown Document Simulation -->
+  <h1>Boris Cherny <span class="badge">Engineer</span></h1>
+  <p>I am a Software Engineer at Anthropic, where I created <a href="#">Claude Code</a>. Before that I was at Meta and Instagram, where I prototyped and scaled the next big ideas for product & infra. A few years ago I wrote a book: <mark>O'Reilly's Programming TypeScript</mark>.</p>
+
+  <hr>
+
+  <h2>The Claude Code Setup</h2>
+  <p>Lots of people have asked how I use Claude Code, so I wanted to show off my setup a bit. My setup might be surprisingly vanilla. Claude Code works great out of the box.</p>
+
+  <blockquote>
+    "I have never enjoyed coding as much as I do today — because I no longer have to deal with the minutia."<br>
+    — Boris Cherny
+  </blockquote>
+
+  <h3>Core Principles</h3>
+  <ul>
+    <li><strong>Plan First, Execute Second:</strong> Most sessions start in Plan mode (<code>shift+tab twice</code>). Go back and forth until the plan is solid, then auto-accept.</li>
+    <li><strong>Verification is Everything:</strong> Give Claude a way to verify its work. If it has that feedback loop, it will 2-3x the quality.</li>
+    <li><strong>Living Documentation:</strong> Anytime we see Claude do something incorrectly, we add it to <code>CLAUDE.md</code>.</li>
+  </ul>
+
+  <h3>Example <code>CLAUDE.md</code> Implementation</h3>
+  <p>Here is an example of setting up a local configuration file using simple TypeScript concepts.</p>
+
+<pre class="language-typescript"><code class="language-typescript"><span class="token comment">// .claude/config.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ClaudeConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@anthropic/claude-code'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> config<span class="token punctuation">:</span> ClaudeConfig <span class="token operator">=</span> <span class="token punctuation">{</span>
+  team<span class="token punctuation">:</span> <span class="token string">"Frontend Infrastructure"</span><span class="token punctuation">,</span>
+  autoAccept<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  maxTokens<span class="token punctuation">:</span> <span class="token number">8192</span><span class="token punctuation">,</span>
+  hooks<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">onPostToolUse</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// Run local formatter</span>
+      <span class="token keyword">return</span> <span class="token function">runPrettier</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+
+  <h3>Subagents vs. General Models</h3>
+  <p>I use a few subagents regularly. Below is a comparison of typical workflows:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Workflow</th>
+        <th>Agent Used</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Code Review</td>
+        <td><code>@claude.reviewer</code></td>
+        <td>Identifies logical flaws and adds constraints to markdown.</td>
+      </tr>
+      <tr>
+        <td>Formatting</td>
+        <td><code>code-simplifier</code></td>
+        <td>Simplifies and refactors messy codebase structures.</td>
+      </tr>
+      <tr>
+        <td>End-to-End</td>
+        <td><code>verify-app</code></td>
+        <td>Runs the full test suite and verifies manual UI states.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Remember, there is no one correct way to use these tools. We intentionally built it in a way that you can customize it, hack it, and integrate it exactly how you prefer!</p>
+
+</body>
+</html>
+
+
+
